@@ -1,29 +1,32 @@
-import "../styles/globals.css";
-import Layout from "@/layouts/Layout";
-import SeoHead from "@/components/SeoHead/SeoHead";
 import type { AppProps } from "next/app";
-import { JSX } from "react";
+import Layout from "@/layouts/Layout";
 import "@/styles/globals.css";
+import { Inter, Open_Sans } from "next/font/google";
+import { Provider } from "react-redux";
+import { store } from "@/store/store";
 
-const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
-  const defaultMeta = {
-    seoData: {
-      title: "Clicon - Next.js eCommerce",
-      description: "Clicon online store. Browse a wide variety of products.",
-      keywords: "Clicon, eCommerce, products, online store",
-      og: {
-        title: "Clicon Store",
-        description: "Shop the latest products at Clicon online store.",
-        image: "/images/main-logo.svg",
-      },
-    },
-  };
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-open-sans",
+  display: "swap",
+});
+
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <Layout>
-      <SeoHead seoData={defaultMeta.seoData} />
-      <Component {...pageProps} />
-    </Layout>
+    <main className={`${inter.variable} ${openSans.variable}`}>
+      <Layout>
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
+      </Layout>
+    </main>
   );
 };
 

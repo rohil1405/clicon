@@ -1,26 +1,28 @@
-import type { AppProps } from "next/app";
-import Layout from "@/layouts/Layout";
-import { Inter, Roboto } from "next/font/google";
+import ProductFeature from "@/components/ProductFeature/ProductFeature";
+import SeoHead from "@/components/SeoHead/SeoHead";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-const roboto = Roboto({
-  subsets: ["latin"],
-  variable: "--font-roboto",
-  display: "swap",
-});
-
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const Home = () => {
   return (
-    <main className={`${inter.variable} ${roboto.variable}`}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </main>
+    <>
+      <SeoHead
+        seoData={{
+          title: "Home - Clicon",
+          description:
+            "Welcome to Clicon homepage built with Next.js + TypeScript.",
+          keywords: "Clicon, Next.js, SEO, TypeScript",
+          canonical: "home",
+          robots: "index, follow",
+          og: {
+            title: "Clicon - Home",
+            description:
+              "Welcome to Clicon homepage built with Next.js + TypeScript.",
+            image: "/images/seo-img.png",
+          },
+        }}
+      />
+      <ProductFeature />
+    </>
   );
 };
 
-export default MyApp;
+export default Home;
