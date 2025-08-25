@@ -5,7 +5,8 @@ import { AppDispatch } from "../store";
 export const getProductFeatures = () => async (dispatch: AppDispatch) => {
   try {
     dispatch(setFeatures({ loading: true, error: null }));
-    const { data } = await Request({ url: "/data/featureData.json", configuration: {} });
+    const { data } = await Request({ url: "/data/featureData.json", configuration: {} });    
+    console.log("featureData.json response:", data);
     dispatch(setFeatures({ items: data, loading: false }));
   } catch (error: any) {
     dispatch(setFeatures({ loading: false, error: error.message || "Failed to load product features" }));
