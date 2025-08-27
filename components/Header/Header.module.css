@@ -50,6 +50,18 @@
   gap: 12px;
   align-items: center;
 }
+.header-right a {
+  position: relative;
+}
+.badge {
+  position: absolute;
+  padding: 4px 9px;
+  border-radius: 100%;
+  background-color: var(--orange-color);
+  color: var(--white-color);
+  top: -6px;
+  right: -16px;
+}
 
 @media (max-width: 767px) {
   .header-top-content,

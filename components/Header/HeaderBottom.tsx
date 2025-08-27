@@ -3,18 +3,22 @@ import Image from "next/image";
 import classes from "./Header.module.css";
 import { SocialLink } from "@/models/SocialProps";
 import { JSX } from "react";
+import useHeaderCount from "@/hooks/useHeaderCount";
 
 const HeaderBottom = (): JSX.Element => {
+  const { favCount, cartCount } = useHeaderCount();
   const bottomSocials: SocialLink[] = [
     {
       src: "/images/ShoppingCartSimple.svg",
       alt: "Cart",
       href: "/cart",
+      count: cartCount,
     },
     {
       src: "/images/Heart.svg",
       alt: "Heart",
       href: "/favourites",
+      count: favCount,
     },
   ];
 
@@ -32,9 +36,10 @@ const HeaderBottom = (): JSX.Element => {
             />
           </Link>
           <div className={classes["header-right"]}>
-            {bottomSocials.map(({ src, alt, href }) => (
+            {bottomSocials.map(({ src, alt, href, count }) => (
               <Link href={href} key={alt}>
                 <Image src={src} alt={alt} width={32} height={32} />
+                {count > 0 && <span className={classes.badge}>{count}</span>}
               </Link>
             ))}
           </div>
@@ -42,6 +47,6 @@ const HeaderBottom = (): JSX.Element => {
       </div>
     </div>
   );
-}
+};
 
 export default HeaderBottom;

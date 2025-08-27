@@ -18,13 +18,15 @@
     "react-slick": "^0.31.0",
     "redux": "^5.0.1",
     "redux-toolkit": "^1.1.2",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "sweetalert2": "^11.22.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-slick": "^0.23.13",
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
     "typescript": "^5"

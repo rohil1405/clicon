@@ -9,7 +9,7 @@ const Request = async({url, configuration}: RequestProps) => {
         } else {
             return {
                 statusCode: res.status,
-                data: data.message
+                data
             }
         }
     } catch(error) {

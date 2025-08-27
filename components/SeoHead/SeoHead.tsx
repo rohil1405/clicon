@@ -3,7 +3,7 @@ import SeoDataProps from "@/models/SeoDataProps";
 import { useRouter } from "next/router";
 import { JSX } from "react";
 
-const SeoHead = ({ seoData }: SeoDataProps):JSX.Element => {
+const SeoHead = ({ seoData }: SeoDataProps): JSX.Element => {
   const router = useRouter();
 
   const base = process.env.CLICON_WEBSITE_URL || "";
@@ -14,6 +14,8 @@ const SeoHead = ({ seoData }: SeoDataProps):JSX.Element => {
       <title>{seoData.title}</title>
       <meta name="description" content={seoData.description} />
       <meta name="keywords" content={seoData.keywords} />
+
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
       {seoData.canonical && <link rel="canonical" href={canonical} />}
       {seoData.robots && <meta name="robots" content={seoData.robots} />}
@@ -46,6 +48,6 @@ const SeoHead = ({ seoData }: SeoDataProps):JSX.Element => {
       )} */}
     </Head>
   );
-}
+};
 
 export default SeoHead;

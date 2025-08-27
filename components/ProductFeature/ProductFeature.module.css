@@ -1,7 +1,4 @@
 .features {
-  padding: 24px 0 40px;
-}
-.features ul {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -9,18 +6,19 @@
   row-gap: 20px;
   flex-wrap: wrap;
   padding: 16px;
+  margin-top: 30px;
 }
-.features ul li {
+.features li {
   padding: 18px 16px;
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-.features ul li p {
+.features li p {
   color: var(--primary-color);
 }
-.features ul li p:first-child {
+.features li p:first-child {
   text-transform: uppercase;
   color: var(--secondary-color);
   padding-bottom: 5px;
@@ -28,14 +26,12 @@
 
 @media (max-width: 991px) {
   .features {
-    padding: 20px 0 34px;
-  }
-  .features ul {
     padding: 0;
     gap: 0;
     row-gap: 30px;
+    margin-top: 24px;
   }
-  .features ul li {
+  .features li {
     width: 50%;
     padding: 0;
   }
@@ -43,9 +39,9 @@
 
 @media (max-width: 767px) {
   .features {
-    padding: 16px 0 26px;
+    margin-top: 18px;
   }
-  .features ul li {
+  .features li {
     width: 100%;
   }
 }
