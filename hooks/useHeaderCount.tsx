@@ -7,22 +7,30 @@ const useHeaderCount = () => {
   const favName = process.env.NEXT_PUBLIC_CLICON_FAVORITES || "favorites";
   const cartName = process.env.NEXT_PUBLIC_CLICON_CART || "cart";
 
-  useEffect(() => {
-    const loadCounts = () => {
+  const loadCounts = () => {
+    try {
       const fav = JSON.parse(localStorage.getItem(favName) || "[]");
       const cart = JSON.parse(localStorage.getItem(cartName) || "[]");
-
       setFavCount(fav.length);
       setCartCount(cart.length);
-    };
+    } catch (err) {
+      console.error("Error parsing storage:", err);
+    }
+  };
 
-    loadCounts();
+  useEffect(() => {
+    loadCounts(); 
 
     window.addEventListener("storage", loadCounts);
-    return () => window.removeEventListener("storage", loadCounts);
+    window.addEventListener("storageUpdate", loadCounts);
+
+    return () => {
+      window.removeEventListener("storage", loadCounts);
+      window.removeEventListener("storageUpdate", loadCounts);
+    };
   }, []);
 
-  return { favCount, cartCount };
+  return { favCount, cartCount, reload: loadCounts };
 };
 
 export default useHeaderCount;

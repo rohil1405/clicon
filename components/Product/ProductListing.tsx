@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { productFavoritesActions } from "@/store/slice/Product";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 interface ProductListingProps {
   products: ProductProps[];
@@ -21,10 +22,36 @@ const ProductListing: React.FC<ProductListingProps> = ({ products }) => {
 
   const toggleFavorite = (product: ProductProps) => {
     const isFavorite = favorites.some((f) => f.id === product.id);
+
     if (isFavorite) {
-      dispatch(productFavoritesActions.remove(product.id));
+      Swal.fire({
+        title: "Are you sure?",
+        text: `${product.title} will be removed from your favorites.`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#fa8232",
+        cancelButtonColor: "#dc3545",
+        confirmButtonText: "Yes, remove it",
+        cancelButtonText: "No, keep it",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          dispatch(productFavoritesActions.remove(product.id));
+          Swal.fire({
+            title: "Removed!",
+            text: `${product.title} has been removed from favorites.`,
+            icon: "success",
+            confirmButtonColor: "#fa8232",
+          });
+        }
+      });
     } else {
       dispatch(productFavoritesActions.add(product));
+      Swal.fire({
+        title: "Added!",
+        text: `${product.title} has been added to your favorites.`,
+        icon: "success",
+        confirmButtonColor: "#fa8232",
+      });
     }
   };
 
@@ -64,7 +91,9 @@ const ProductListing: React.FC<ProductListingProps> = ({ products }) => {
               </Link>
               <p>{p.description}</p>
               <div className={classes.price}>${p.price}</div>
-              <div className={classes.discount}>{p.discountPercentage}% OFF</div>
+              <div className={classes.discount}>
+                {p.discountPercentage}% OFF
+              </div>
 
               <Button
                 name="add to cart"

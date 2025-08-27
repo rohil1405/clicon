@@ -278,6 +278,32 @@ p {
 .category-wrap .cta .btn {
   display: none;
 }
+.fav-wrap {
+  padding: 150px 0 100px;
+}
+.no-product {
+  height: calc(100vh - 405px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.product-msg {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.product-msg span {
+  font-weight: 400;
+  font-size: 24px;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);

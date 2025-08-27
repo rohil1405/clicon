@@ -8,21 +8,17 @@ interface ProductFeatureListProps {
 
 const ProductFeatureList = ({ items }: ProductFeatureListProps) => {
   return (
-    <div className={classes.features}>
-      <div className="container">
-        <ul>
-          {items.map((feature) => (
-            <ProductFeatureItem
-              key={feature.id}
-              id={feature.id}
-              title={feature.title}
-              image={feature.image}
-              feature={feature.feature}
-            />
-          ))}
-        </ul>
-      </div>
-    </div>
+    <ul className={classes.features}>
+      {items.map((feature) => (
+        <ProductFeatureItem
+          key={feature.id}
+          id={feature.id}
+          title={feature.title}
+          image={feature.image}
+          feature={feature.feature}
+        />
+      ))}
+    </ul>
   );
 };
 
