@@ -41,14 +41,11 @@ export default function FooterTop() {
                   <Link href="/products">Shop</Link>
                 </li>
                 <li>
-                  <Link href="/favourities">Favourities</Link>
+                  <Link href="/favourites">Favourites</Link>
                 </li>
 
                 <li>
                   <Link href="/cart">Add to cart</Link>
-                </li>
-                <li>
-                  <Link href="/404">404</Link>
                 </li>
               </ul>
             </div>

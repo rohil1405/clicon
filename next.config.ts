@@ -5,9 +5,15 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "cdn.dummyjson.com",
-        pathname: "/**", 
+        pathname: "/**",
       },
     ],
+  },
+  env: {
+    CLICON_WEBSITE_URL: process.env.CLICON_WEBSITE_URL,
+    CLICON_PRODUCT_WEBSITE_URL: process.env.CLICON_PRODUCT_WEBSITE_URL,
+    NEXT_PUBLIC_CLICON_FAVORITES: process.env.NEXT_PUBLIC_CLICON_FAVORITES,
+    NEXT_PUBLIC_CLICON_CART: process.env.NEXT_PUBLIC_CLICON_CART,
   },
 };
 
