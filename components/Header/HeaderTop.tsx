@@ -10,31 +10,37 @@ const HeaderTop = (): JSX.Element => {
       href: "https://www.twitter.com",
       src: "/images/Twitter.svg",
       alt: "Twitter",
+      count: 0
     },
     {
       href: "https://www.facebook.com",
       src: "/images/Facebook.svg",
       alt: "Facebook",
+      count: 0
     },
     {
       href: "https://www.pinterest.com",
       src: "/images/Pinterest.svg",
       alt: "Pinterest",
+      count: 0
     },
     {
       href: "https://www.reddit.com",
       src: "/images/Reddit.svg",
       alt: "Reddit",
+      count: 0
     },
     {
       href: "https://www.youtube.com",
       src: "/images/Youtube.svg",
       alt: "Youtube",
+      count: 0
     },
     {
       href: "https://www.instagram.com",
       src: "/images/Instagram.svg",
       alt: "Instagram",
+      count: 0
     },
   ];
 

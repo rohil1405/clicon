@@ -1,0 +1,45 @@
+.header {
+  margin: 180px 0 100px;
+  padding: 28px;
+  background-color: var(--light-grey-color);
+}
+.header ul li a {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 1.1px;
+  color: var(--primary-color);
+}
+.header ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.active {
+  font-weight: 600;
+  color: var(--blue-color);
+}
+.header ul li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  letter-spacing: 1.1px;
+}
+.header ul li:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+
+  margin: 0 8px;
+  background-image: url("/images/CaretRight.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.header ul li a:hover {
+  color: var(--orange-color);
+}

@@ -38,16 +38,14 @@ export default function FooterTop() {
               <div className={classes["footer-text"]}>Quick Links</div>
               <ul>
                 <li>
-                  <Link href="/favourities">Favourities</Link>
-                </li>
-                <li>
                   <Link href="/products">Shop</Link>
                 </li>
                 <li>
-                  <Link href="/cart">Add to cart</Link>
+                  <Link href="/favourites">Favourites</Link>
                 </li>
+
                 <li>
-                  <Link href="/404">404</Link>
+                  <Link href="/cart">Add to cart</Link>
                 </li>
               </ul>
             </div>
