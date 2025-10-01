@@ -1,11 +1,14 @@
+
 import classes from "./ProductListing.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import Button from "../Button/Button";
 import ProductProps from "@/models/ProductProps";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-import { productFavoritesActions } from "@/store/slice/Product";
+import {
+  productFavoritesActions,
+  productCartActions,
+} from "@/store/slice/Product";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
@@ -16,6 +19,7 @@ interface ProductListingProps {
 const ProductListing: React.FC<ProductListingProps> = ({ products }) => {
   const dispatch = useDispatch();
   const favorites = useSelector((state: RootState) => state.productFavorites);
+  const cart = useSelector((state: RootState) => state.productCart); 
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -55,6 +59,28 @@ const ProductListing: React.FC<ProductListingProps> = ({ products }) => {
     }
   };
 
+  const toggleCart = (product: ProductProps) => {
+    const cartItem = cart.find((c) => c.id === product.id);
+
+    if (cartItem) {
+      dispatch(productCartActions.add(product));
+      Swal.fire({
+        title: "Quantity Updated!",
+        text: `Quantity of "${product.title}" is now ${cartItem.quantity + 1}.`,
+        icon: "success",
+        confirmButtonColor: "#fa8232",
+      });
+    } else {
+      dispatch(productCartActions.add(product));
+      Swal.fire({
+        title: "Added to Cart!",
+        text: `"${product.title}" has been added to your cart.`,
+        icon: "success",
+        confirmButtonColor: "#fa8232",
+      });
+    }
+  };
+
   if (!mounted) {
     return (
       <ul className={classes.list}>
@@ -72,6 +98,7 @@ const ProductListing: React.FC<ProductListingProps> = ({ products }) => {
       {products.map((p) => {
         const isFavorite = favorites.some((f) => f.id === p.id);
         const exploreProduct = `/products/${p.id}`;
+        const cartItem = cart.find((c) => c.id === p.id);
 
         return (
           <li key={p.id} className={classes.item}>
@@ -95,14 +122,17 @@ const ProductListing: React.FC<ProductListingProps> = ({ products }) => {
                 {p.discountPercentage}% OFF
               </div>
 
-              <Button
-                name="add to cart"
-                left={false}
-                right={false}
-                cart={true}
-                href="/products"
-                style={{ display: "flex" }}
-              />
+              <div className={classes.cta} onClick={() => toggleCart(p)}>
+                <div className="btn" style={{ display: "flex" }}>
+                  {cartItem ? `Add More` : "Add to cart"}
+                  <Image
+                    src="/images/ShoppingCartSimple.svg"
+                    width={24}
+                    height={24}
+                    alt="add-to-cart"
+                  />
+                </div>
+              </div>
             </div>
           </li>
         );

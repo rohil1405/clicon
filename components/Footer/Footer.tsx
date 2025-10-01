@@ -2,7 +2,7 @@ import classes from "./Footer.module.css";
 import FooterTop from "./FooterTop";
 import FooterBottom from "./FooterBottom";
 
-export default function Footer() {
+const Footer = () => {
     return (
         <div className={classes['footer-wrap']}>
             <FooterTop />
@@ -10,3 +10,5 @@ export default function Footer() {
         </div>
     )
 }
+
+export default Footer;

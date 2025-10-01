@@ -4,13 +4,13 @@ import ProductListing from "@/components/Product/ProductListing";
 import Section from "@/components/Section/Section";
 import Button from "@/components/Button/Button";
 
-export default function FavoritesPage() {
+const FavoritesPage = () => {
   const favorites = useSelector((state: RootState) => state.productFavorites);
 
   return (
     <>
       {favorites.length ? (
-        <div className="fav-wrap">
+        <div className="fav-cart-wrap">
           <Section
             title="Your Favorites"
             description="All the products you’ve marked with ❤️ are saved here. Easily find and shop them anytime."
@@ -19,7 +19,7 @@ export default function FavoritesPage() {
           </Section>
         </div>
       ) : (
-        <div className="no-product">
+        <div className="no-product fav-cart-wrap">
           <div className="product-msg">
             Looks like you haven’t added any favorites yet.
             <span>Tap the ❤️ button on products to save them here.</span>
@@ -36,3 +36,5 @@ export default function FavoritesPage() {
     </>
   );
 }
+
+export default FavoritesPage;

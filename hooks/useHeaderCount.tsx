@@ -1,3 +1,5 @@
+
+
 import { useEffect, useState } from "react";
 
 const useHeaderCount = () => {
@@ -19,7 +21,7 @@ const useHeaderCount = () => {
   };
 
   useEffect(() => {
-    loadCounts(); 
+    loadCounts();
 
     window.addEventListener("storage", loadCounts);
     window.addEventListener("storageUpdate", loadCounts);

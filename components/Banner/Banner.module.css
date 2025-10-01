@@ -38,8 +38,12 @@
 }
 .error {
   text-align: center;
-  color: var(--error-color);
   padding: 20px 0;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  color: var(--primary-color);
 }
 .content {
   display: flex !important;

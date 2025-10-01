@@ -2,7 +2,7 @@ import classes from "./Footer.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function FooterTop() {
+const FooterTop = () => {
   return (
     <div className={classes["footer-top"]}>
       <div className="container">
@@ -41,14 +41,11 @@ export default function FooterTop() {
                   <Link href="/products">Shop</Link>
                 </li>
                 <li>
-                  <Link href="/favourities">Favourities</Link>
+                  <Link href="/favourites">Favourites</Link>
                 </li>
 
                 <li>
                   <Link href="/cart">Add to cart</Link>
-                </li>
-                <li>
-                  <Link href="/404">404</Link>
                 </li>
               </ul>
             </div>
@@ -92,4 +89,6 @@ export default function FooterTop() {
       </div>
     </div>
   );
-}
+};
+
+export default FooterTop;

@@ -1,6 +1,6 @@
 import classes from "./Footer.module.css";
 
-export default function FooterBottom() {
+const FooterBottom = () => {
   return (
     <div className={classes["footer-bottom"]}>
       <div className="container">
@@ -9,3 +9,5 @@ export default function FooterBottom() {
     </div>
   );
 }
+
+export default FooterBottom;

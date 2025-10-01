@@ -4,17 +4,17 @@ import SeoHead from "@/components/SeoHead/SeoHead";
 import SeoDataProps from "@/models/SeoDataProps";
 import { JSX } from "react";
 
-const NotFoundPage = (): JSX.Element => {
+const ThankYouPage = (): JSX.Element => {
   const seoData: SeoDataProps["seoData"] = {
-    title: "404 - Page Not Found | Clicon Store",
+    title: "Thank You | Clicon Store",
     description:
-      "The page you are looking for does not exist. It may have been removed or the link is broken.",
-    keywords: "404, page not found, error, missing page, Clicon",
+      "Thank you for your purchase at Clicon Store. Your order has been placed successfully.",
+    keywords: "thank you, order success, Clicon",
     og: {
-      title: "404 - Page Not Found",
+      title: "Thank You - Clicon Store",
       description:
-        "Oops! The page you are looking for doesn’t exist. Go back to the homepage.",
-      image: "/images/404.png",
+        "Your order was placed successfully. Thank you for shopping with Clicon!",
+      image: "/images/thankyou.png",
     },
   };
 
@@ -26,20 +26,20 @@ const NotFoundPage = (): JSX.Element => {
         <div className="container">
           <div className="not-found-thank">
             <Image
-              src="/images/404.png"
-              width={500}
-              height={327}
-              alt="404-page"
+              src="/images/thankyou.png"
+              width={612}
+              height={408}
+              alt="thank-you"
             />
             <div className="not-found-thank-content">
-              <h1 className="h3">404, Page not found</h1>
+              <h1 className="h3">Thank You!</h1>
               <p>
-                Something went wrong. It looks like your requested page could
-                not be found. The link may be broken or the page has been
-                removed.
+                Your order has been placed successfully. We’ll send you an
+                update once it’s shipped. Meanwhile, feel free to continue
+                shopping.
               </p>
               <Button
-                name="Go Back"
+                name="Shop Now"
                 left={true}
                 right={false}
                 cart={false}
@@ -51,6 +51,6 @@ const NotFoundPage = (): JSX.Element => {
       </div>
     </>
   );
-}
+};
 
-export default NotFoundPage;
+export default ThankYouPage;
