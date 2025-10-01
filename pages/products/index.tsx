@@ -1,59 +1,118 @@
 "use client";
 
 import { useState } from "react";
-import { useQuery, keepPreviousData } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import ProductProps from "@/models/ProductProps";
 import ProductListing from "@/components/Product/ProductListing";
+import Request from "@/utils/Request";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import SeoHead from "@/components/SeoHead/SeoHead";
+import Section from "@/components/Section/Section";
 
-const fetchProducts = async (page: number, limit: number) => {
-  const res = await fetch(
-    `https://dummyjson.com/products?limit=${limit}&skip=${(page - 1) * limit}`
-  );
-  if (!res.ok) throw new Error("Failed to fetch products");
-  const data = await res.json();
-  return data.products as ProductProps[];
+const LIMIT = 12;
+
+const fetchProducts = async (
+  page: number,
+  searchTerm?: string
+): Promise<ProductProps[]> => {
+  let url = "";
+
+  if (searchTerm) {
+    url = `${
+      process.env.CLICON_PRODUCT_WEBSITE_URL
+    }/search?q=${searchTerm}&limit=${LIMIT}&skip=${LIMIT * (page - 1)}`;
+  } else {
+    url = `${process.env.CLICON_PRODUCT_WEBSITE_URL}?limit=${LIMIT}&skip=${
+      LIMIT * (page - 1)
+    }`;
+  }
+
+  const response = await Request({
+    url,
+    configuration: { method: "GET" },
+  });
+
+  return response.data.products;
 };
 
 const ProductPage = () => {
   const [page, setPage] = useState(1);
-  const limit = 12;
+  const [searchTerm, setSearchTerm] = useState("");
 
   const {
     data: products = [],
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["products", page],
-    queryFn: () => fetchProducts(page, limit),
-    placeholderData: keepPreviousData, // ✅ replaces keepPreviousData
+    queryKey: ["products", page, searchTerm],
+    queryFn: () => fetchProducts(page, searchTerm),
+    placeholderData: (prev) => prev,
   });
 
-  if (isLoading) return <p>Loading products...</p>;
-  if (isError) return <p>Failed to load products.</p>;
+  if (isLoading)
+    return (
+      <div className="load-error">
+        <p className="loader">Loading products...</p>;
+      </div>
+    );
+  if (isError)
+    return (
+      <div className="load-error">
+        <div className="iserror">
+          <h2>Oops! Something went wrong.</h2>
+          <p>
+            We couldn’t load the products at the moment. Please try refreshing
+            the page or come back later.
+          </p>
+        </div>
+      </div>
+    );
 
   return (
-    <div>
-      <h2>Products</h2>
-      <ProductListing products={products} />
+    <>
+      <SeoHead
+        seoData={{
+          title: "Products - Clicon Store",
+          description:
+            "Explore our wide range of products at Clicon Store. Find the best deals and quality products for all your needs.",
+          keywords:
+            "Clicon, products, shop, ecommerce, online store, buy products",
+          canonical: "products",
+          robots: "index, follow",
+          og: {
+            title: "Clicon Store - Products",
+            description:
+              "Discover and shop from our collection of premium products at Clicon Store.",
+            image: "/images/seo-img.png",
+          },
+        }}
+      />
 
-      <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
-        <button
-          disabled={page === 1}
-          onClick={() => setPage((old) => Math.max(old - 1, 1))}
-          style={{ marginRight: 10 }}
+      <div className="all-product-wrap">
+        <Section
+          title="Shop Our Products"
+          description="Browse our premium selection of products at Clicon Store. Quality, variety, and the best deals all in one place."
         >
-          Previous
-        </button>
-        <span>Page {page}</span>
-        <button
-          disabled={products.length < limit}
-          onClick={() => setPage((old) => old + 1)}
-          style={{ marginLeft: 10 }}
-        >
-          Next
-        </button>
+          <ProductListing products={products} />
+
+          <div className="pagination">
+            <button
+              disabled={page === 1}
+              onClick={() => setPage((old) => Math.max(old - 1, 1))}
+            >
+              <FaChevronLeft />
+            </button>
+            <span>{page}</span>
+            <button
+              disabled={products.length < LIMIT}
+              onClick={() => setPage((old) => old + 1)}
+            >
+              <FaChevronRight />
+            </button>
+          </div>
+        </Section>
       </div>
-    </div>
+    </>
   );
 };
 

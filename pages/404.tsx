@@ -4,7 +4,7 @@ import SeoHead from "@/components/SeoHead/SeoHead";
 import SeoDataProps from "@/models/SeoDataProps";
 import { JSX } from "react";
 
-export default function NotFoundPage(): JSX.Element {
+const NotFoundPage = (): JSX.Element => {
   const seoData: SeoDataProps["seoData"] = {
     title: "404 - Page Not Found | Clicon Store",
     description:
@@ -52,3 +52,5 @@ export default function NotFoundPage(): JSX.Element {
     </>
   );
 }
+
+export default NotFoundPage;

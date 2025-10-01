@@ -4,7 +4,7 @@ import Section from "@/components/Section/Section";
 import Button from "@/components/Button/Button";
 import AddCart from "@/components/AddCart/AddCart";
 
-export default function CartPage() {
+const CartPage = () => {
   const cart = useSelector((state: RootState) => state.productCart);
 
   return (
@@ -38,3 +38,5 @@ export default function CartPage() {
     </>
   );
 }
+
+export default CartPage;

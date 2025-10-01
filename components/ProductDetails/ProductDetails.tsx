@@ -6,7 +6,7 @@ import ProductRight from "./ProductRight";
 import { ProductDetailProps } from "@/models/ProductDetailProps";
 
 interface ProductDetailComponentProps {
-  product?: ProductDetailProps; // make optional
+  product?: ProductDetailProps; 
 }
 
 const ProductDetail = ({ product }: ProductDetailComponentProps) => {

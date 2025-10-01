@@ -2,7 +2,7 @@ import classes from "./Footer.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function FooterTop() {
+const FooterTop = () => {
   return (
     <div className={classes["footer-top"]}>
       <div className="container">
@@ -89,4 +89,6 @@ export default function FooterTop() {
       </div>
     </div>
   );
-}
+};
+
+export default FooterTop;

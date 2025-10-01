@@ -13,7 +13,7 @@ interface ProductPageProps {
   };
 }
 
-export default function ProductsPage({ data }: ProductPageProps) {
+const index = ({ data }: ProductPageProps) => {
   return (
     <>
       <SeoHead
@@ -67,7 +67,9 @@ export default function ProductsPage({ data }: ProductPageProps) {
       {/* top-rated section end */}
     </>
   );
-}
+};
+
+export default index;
 
 export async function getServerSideProps() {
   try {

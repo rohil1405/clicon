@@ -19,7 +19,7 @@ interface ProductListingProps {
 const ProductListing: React.FC<ProductListingProps> = ({ products }) => {
   const dispatch = useDispatch();
   const favorites = useSelector((state: RootState) => state.productFavorites);
-  const cart = useSelector((state: RootState) => state.productCart); // cart with quantity
+  const cart = useSelector((state: RootState) => state.productCart); 
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -63,7 +63,6 @@ const ProductListing: React.FC<ProductListingProps> = ({ products }) => {
     const cartItem = cart.find((c) => c.id === product.id);
 
     if (cartItem) {
-      // Already in cart → increase quantity
       dispatch(productCartActions.add(product));
       Swal.fire({
         title: "Quantity Updated!",
@@ -72,7 +71,6 @@ const ProductListing: React.FC<ProductListingProps> = ({ products }) => {
         confirmButtonColor: "#fa8232",
       });
     } else {
-      // Add first time
       dispatch(productCartActions.add(product));
       Swal.fire({
         title: "Added to Cart!",
