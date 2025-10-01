@@ -56,12 +56,9 @@ const AddCart = () => {
   );
 
   const handleCheckout = () => {
-    // Clear cart in Redux
     dispatch(productCartActions.clear());
-
-    // Clear cart in localStorage
     if (typeof window !== "undefined") {
-      localStorage.removeItem("cart"); // or your NEXT_PUBLIC_CLICON_CART key
+      localStorage.removeItem("cart"); 
     }
 
     Swal.fire({
@@ -135,8 +132,7 @@ const AddCart = () => {
           </tr>
         </tbody>
       </table>
-      <div className={classes.checkout}>
-        {" "}
+      <div className={classes.checkout} onClick={handleCheckout}>
         <Button
           name="Checkout"
           left={false}

@@ -4,7 +4,7 @@ import ProductListing from "@/components/Product/ProductListing";
 import Section from "@/components/Section/Section";
 import Button from "@/components/Button/Button";
 
-export default function FavoritesPage() {
+const FavoritesPage = () => {
   const favorites = useSelector((state: RootState) => state.productFavorites);
 
   return (
@@ -36,3 +36,5 @@ export default function FavoritesPage() {
     </>
   );
 }
+
+export default FavoritesPage;
