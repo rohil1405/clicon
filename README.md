@@ -119,14 +119,19 @@ For more details, check Next.js Deployment Documentation
 ## 💡 Notes
 
 Built with Next.js + TypeScript for scalability.
+
 Redux manages cart and favorites globally across pages.
+
 React Query ensures smooth data fetching without excessive re-renders.
+
 Custom 404 ensures users never see broken pages.
+
 Designed for eCommerce workflows like browsing, selecting, and purchasing products.
 
 ## ✨ Contributing
 
 Feel free to fork, submit issues, or make pull requests!
+
 For feature requests or bugs, open an issue in the repository.
 
 ## 📜 License
