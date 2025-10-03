@@ -110,26 +110,18 @@ React Query: Handles asynchronous fetching and caching efficiently.
 ## 🌐 Deployment
 
 Deploy the app easily on Vercel:
-
 Connect your GitHub repository to Vercel.
-
 Configure project settings (framework: Next.js, build command: npm run build).
-
 Vercel automatically deploys your app with SSR and optimized assets.
-
 For more details, check Next.js Deployment Documentation
 .
 
 ## 💡 Notes
 
 Built with Next.js + TypeScript for scalability.
-
 Redux manages cart and favorites globally across pages.
-
 React Query ensures smooth data fetching without excessive re-renders.
-
 Custom 404 ensures users never see broken pages.
-
 Designed for eCommerce workflows like browsing, selecting, and purchasing products.
 
 ## ✨ Contributing
