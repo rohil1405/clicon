@@ -53,6 +53,8 @@ Clicon is a modern eCommerce web application built with **Next.js** and **TypeSc
     └── data/                # Static data or feature data
 
 
+```
+
 ⚡ Getting Started
 Prerequisites
 
