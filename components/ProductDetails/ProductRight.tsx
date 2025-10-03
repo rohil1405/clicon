@@ -1,4 +1,3 @@
-
 import ProductContent from "./ProductContent";
 import classes from "./product-details.module.css";
 import ProductPrice from "./ProductPrice";
@@ -12,6 +11,7 @@ import {
 } from "@/store/slice/Product";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import ProductProps from "@/models/ProductProps";
 
 const ProductRight = (props: ProductDetailProps) => {
   const dispatch = useDispatch();
@@ -25,39 +25,58 @@ const ProductRight = (props: ProductDetailProps) => {
   const isCart = cart.some((c) => c.id === props.id);
 
   const toggleFavorite = () => {
-    if (isFavorite) {
-      Swal.fire({
-        title: "Are you sure?",
-        text: `${props.title} will be removed from your favorites.`,
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#fa8232",
-        cancelButtonColor: "#dc3545",
-        confirmButtonText: "Yes, remove it",
-        cancelButtonText: "No, keep it",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          dispatch(productFavoritesActions.remove(props.id));
-          Swal.fire({
-            title: "Removed!",
-            text: `${props.title} has been removed from favorites.`,
-            icon: "success",
-            confirmButtonColor: "#fa8232",
-          });
-        }
-      });
-    } else {
-      dispatch(productFavoritesActions.add(props));
-      Swal.fire({
-        title: "Added!",
-        text: `${props.title} has been added to your favorites.`,
-        icon: "success",
-        confirmButtonColor: "#fa8232",
-      });
-    }
+  const productToAdd: ProductProps = {
+    id: props.id,
+    title: props.title,
+    description: props.description,
+    thumbnail: props.thumbnail || "", // fallback to empty string
+    price: props.price,
+    discountPercentage: props.discountPercentage,
   };
 
+  if (isFavorite) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: `${props.title} will be removed from your favorites.`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#fa8232",
+      cancelButtonColor: "#dc3545",
+      confirmButtonText: "Yes, remove it",
+      cancelButtonText: "No, keep it",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(productFavoritesActions.remove(props.id));
+        Swal.fire({
+          title: "Removed!",
+          text: `${props.title} has been removed from favorites.`,
+          icon: "success",
+          confirmButtonColor: "#fa8232",
+        });
+      }
+    });
+  } else {
+    dispatch(productFavoritesActions.add(productToAdd));
+    Swal.fire({
+      title: "Added!",
+      text: `${props.title} has been added to your favorites.`,
+      icon: "success",
+      confirmButtonColor: "#fa8232",
+    });
+  }
+};
+
+
   const toggleCart = () => {
+    const productForCart: ProductProps = {
+      id: props.id,
+      title: props.title,
+      description: props.description,
+      price: props.price,
+      discountPercentage: props.discountPercentage,
+      thumbnail: props.thumbnail ?? "/images/placeholder.png",
+    };
+
     if (isCart) {
       Swal.fire({
         title: "Are you sure?",
@@ -80,7 +99,7 @@ const ProductRight = (props: ProductDetailProps) => {
         }
       });
     } else {
-      dispatch(productCartActions.add(props));
+      dispatch(productCartActions.add(productForCart)); // ✅ now correct type
       Swal.fire({
         title: "Added!",
         text: `${props.title} has been added to your cart.`,
@@ -109,7 +128,9 @@ const ProductRight = (props: ProductDetailProps) => {
         {isFavorite ? "❤️" : "🤍"}
       </button>
 
-      <div className={classes.rating}>{props.rating} <span>Star Rating</span></div>
+      <div className={classes.rating}>
+        {props.rating} <span>Star Rating</span>
+      </div>
       <h1 className="h2">{props.title}</h1>
       <h2 className="h6">{props.description}</h2>
 
