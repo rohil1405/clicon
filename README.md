@@ -52,10 +52,10 @@ Clicon is a modern eCommerce web application built with **Next.js** and **TypeSc
     ├── images/              # Shared images & icons
     └── data/                # Static data or feature data
 
-
 ```
 
-⚡ Getting Started
+
+## ⚡ Getting Started
 Prerequisites
 
 Make sure you have Node.js >=18 installed.
@@ -70,7 +70,7 @@ yarn install
 
 # or
 
-pnpm install
+npm install
 
 Run Development Server
 npm run dev
@@ -81,19 +81,19 @@ yarn dev
 
 # or
 
-pnpm dev
+npm dev
 
 Open http://localhost:3000
 in your browser to see the live app.
 
-📝 Scripts
+## 📝 Scripts
 Command Description
 npm run dev Run Next.js in development mode
 npm run build Build production-ready application
 npm run start Start the production server
 npm run lint Run ESLint to check code for issues
 
-🔧 How It Works
+## 🔧 How It Works
 
 Cart Management: Users can add products to the cart, update quantities, and remove items.
 
@@ -107,7 +107,7 @@ Interactive UI: SweetAlert notifications and sliders improve user experience.
 
 React Query: Handles asynchronous fetching and caching efficiently.
 
-🌐 Deployment
+## 🌐 Deployment
 
 Deploy the app easily on Vercel:
 
@@ -120,7 +120,7 @@ Vercel automatically deploys your app with SSR and optimized assets.
 For more details, check Next.js Deployment Documentation
 .
 
-💡 Notes
+## 💡 Notes
 
 Built with Next.js + TypeScript for scalability.
 
@@ -132,11 +132,11 @@ Custom 404 ensures users never see broken pages.
 
 Designed for eCommerce workflows like browsing, selecting, and purchasing products.
 
-✨ Contributing
+## ✨ Contributing
 
 Feel free to fork, submit issues, or make pull requests!
 For feature requests or bugs, open an issue in the repository.
 
-📜 License
+## 📜 License
 
 MIT License © 2025
