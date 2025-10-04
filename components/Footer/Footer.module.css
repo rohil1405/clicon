@@ -29,7 +29,7 @@
 }
 .left {
   display: flex;
-  gap: 24px;
+  gap: 60px;
   flex-wrap: wrap;
   row-gap: 20px;
 }

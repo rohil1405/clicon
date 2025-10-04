@@ -21,11 +21,11 @@ const FooterTop = () => {
 
                 <ul>
                   <li>
-                    <Link href="tel:6295550129">(629) 555-0129</Link>
+                    <Link href="tel:1234567809">(123) 456-7809</Link>
                   </li>
                   <li>
                     <Link href="" target="_blank">
-                      4517 Washington Ave. Manchester, Kentucky 39495
+                      1234 Address Here | City, State
                     </Link>
                   </li>
                   <li>

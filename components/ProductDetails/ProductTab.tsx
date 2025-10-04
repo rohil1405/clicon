@@ -1,5 +1,3 @@
-
-
 import { useState } from "react";
 import TabContent from "./ProductTabContent";
 import classes from "./product-details.module.css";

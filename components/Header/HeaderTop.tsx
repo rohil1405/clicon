@@ -66,15 +66,7 @@ const HeaderTop = (): JSX.Element => {
                 ))}
               </div>
             </div>
-            <Link href="tel:+12025550104" className={classes["header-contact"]}>
-              <Image
-                src="/images/PhoneCall.svg"
-                alt="PhoneCall"
-                width={28}
-                height={28}
-              />
-              <span>+1-202-555-0104</span>
-            </Link>
+           
           </div>
         </div>
       </div>

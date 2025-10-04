@@ -39,3 +39,5 @@ export interface ProductDetailProps {
   meta?: Meta;
   reviews?: Review[];
 }
+
+
