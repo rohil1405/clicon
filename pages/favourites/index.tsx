@@ -3,12 +3,30 @@ import { RootState } from "@/store/store";
 import ProductListing from "@/components/Product/ProductListing";
 import Section from "@/components/Section/Section";
 import Button from "@/components/Button/Button";
+import SeoHead from "@/components/SeoHead/SeoHead";
 
 const FavoritesPage = () => {
   const favorites = useSelector((state: RootState) => state.productFavorites);
 
   return (
     <>
+      <SeoHead
+        seoData={{
+          title: "Favorites - Clicon Store",
+          description:
+            "View and manage your favorite products at Clicon Store. Keep track of items you love and plan your purchases.",
+          keywords: "Clicon, favorites, wishlist, saved products, online store",
+          canonical: "favorites",
+          robots: "index, follow",
+          og: {
+            title: "Clicon Store - Favorites",
+            description:
+              "Check your favorite products and manage your wishlist at Clicon Store.",
+            image: "/images/favorites-seo-img.png",
+          },
+        }}
+      />
+
       {favorites.length ? (
         <div className="fav-cart-wrap">
           <Section
@@ -24,17 +42,19 @@ const FavoritesPage = () => {
             Looks like you haven’t added any favorites yet.
             <span>Tap the ❤️ button on products to save them here.</span>
           </div>
-          <Button
-            name="Go Back"
-            left={true}
-            right={false}
-            cart={false}
-            href="/"
-          />
+          <div style={{ marginTop: "20px" }}>
+            <Button
+              name="Go Back"
+              left={true}
+              right={false}
+              cart={false}
+              href="/"
+            />
+          </div>
         </div>
       )}
     </>
   );
-}
+};
 
 export default FavoritesPage;
