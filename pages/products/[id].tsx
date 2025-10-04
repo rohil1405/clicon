@@ -26,13 +26,15 @@ const DetailPage = ({ product }: ProductPageProps) => {
       <SeoHead
         seoData={{
           title: `${product.title} - Clicon`,
-          description: product.description ?? "Explore product details on Clicon.",
+          description:
+            product.description ?? "Explore product details on Clicon.",
           keywords: `${product.title}, ${product.brand}, ${product.category}`,
           canonical: `/products/${product.id}`,
           robots: "index, follow",
           og: {
             title: product.title ?? "Clicon Product",
-            description: product.description ?? "Explore product details on Clicon.",
+            description:
+              product.description ?? "Explore product details on Clicon.",
             image: product.thumbnail ?? "/images/seo-img.png",
           },
         }}
@@ -41,7 +43,7 @@ const DetailPage = ({ product }: ProductPageProps) => {
       <ProductDetail product={product} />
     </>
   );
-}
+};
 
 export default DetailPage;
 
@@ -49,25 +51,18 @@ export const getServerSideProps: GetServerSideProps<ProductPageProps> = async (
   context
 ) => {
   const { id } = context.params as { id: string };
+  const response = await Request({
+    url: `${process.env.CLICON_PRODUCT_WEBSITE_URL}/${id}`,
+    configuration: { method: "GET" },
+  });
 
-  try {
-    const response = await Request({
-      url: `${process.env.CLICON_PRODUCT_WEBSITE_URL}/${id}`,
-      configuration: { method: "GET" },
-    });
-
-    if (!response?.data) {
-      return { props: { product: null } };
-    }
-
-    return {
-      props: {
-        product: response.data as ProductDetailProps,
-      },
-    };
-  } catch (error) {
-    return {
-      props: { product: null },
-    };
+  if (!response?.data) {
+    return { props: { product: null } };
   }
+
+  return {
+    props: {
+      product: response.data as ProductDetailProps,
+    },
+  };
 };
