@@ -1,6 +1,6 @@
 # 🛒 Clicon eCommerce Website
 
-![Next.js](https://img.shields.io/badge/Next.js-13-blue?logo=next.js&style=for-the-badge)
+![Next.js](https://img.shields.io/badge/Next.js-18-blue?logo=next.js&style=for-the-badge)
 ![TypeScript](https://img.shields.io/badge/TypeScript-4.9-blue?logo=typescript&style=for-the-badge)
 ![React Redux](https://img.shields.io/badge/Redux-React-purple?logo=redux&style=for-the-badge)
 ![React Query](https://img.shields.io/badge/React_Query-3.39-green?style=for-the-badge)
@@ -53,6 +53,36 @@ Clicon is a modern eCommerce web application built with **Next.js** and **TypeSc
     └── data/                # Static data or feature data
 
 
+```
+
+## 🔧 How It Works
+
+Cart Management: Users can add products to the cart, update quantities, and remove items.
+
+Favorites: Add/remove products to a favorites list.
+
+Product Details: Rich product information with images, ratings, and descriptions.
+
+SSR for SEO: Product pages are server-side rendered to improve SEO.
+
+Interactive UI: SweetAlert notifications and sliders improve user experience.
+
+React Query: Handles asynchronous fetching and caching efficiently.
+
+## 🌐 Deployment
+
+Deploy the app easily on Vercel:
+
+Connect your GitHub repository to Vercel.
+
+Configure project settings (framework: Next.js, build command: npm run build).
+
+Vercel automatically deploys your app with SSR and optimized assets.
+
+For more details, check Next.js Deployment Documentation
+
+```text
+
 ⚡ Getting Started
 Prerequisites
 
@@ -81,44 +111,20 @@ yarn dev
 
 pnpm dev
 
-Open http://localhost:3000
+Open clicon-dtq8.vercel.app
 in your browser to see the live app.
 
-📝 Scripts
+```
+
+## 📝 Scripts
+
 Command Description
 npm run dev Run Next.js in development mode
 npm run build Build production-ready application
 npm run start Start the production server
 npm run lint Run ESLint to check code for issues
 
-🔧 How It Works
-
-Cart Management: Users can add products to the cart, update quantities, and remove items.
-
-Favorites: Add/remove products to a favorites list.
-
-Product Details: Rich product information with images, ratings, and descriptions.
-
-SSR for SEO: Product pages are server-side rendered to improve SEO.
-
-Interactive UI: SweetAlert notifications and sliders improve user experience.
-
-React Query: Handles asynchronous fetching and caching efficiently.
-
-🌐 Deployment
-
-Deploy the app easily on Vercel:
-
-Connect your GitHub repository to Vercel.
-
-Configure project settings (framework: Next.js, build command: npm run build).
-
-Vercel automatically deploys your app with SSR and optimized assets.
-
-For more details, check Next.js Deployment Documentation
-.
-
-💡 Notes
+## 💡 Notes
 
 Built with Next.js + TypeScript for scalability.
 
@@ -130,11 +136,11 @@ Custom 404 ensures users never see broken pages.
 
 Designed for eCommerce workflows like browsing, selecting, and purchasing products.
 
-✨ Contributing
+## ✨ Contributing
 
 Feel free to fork, submit issues, or make pull requests!
 For feature requests or bugs, open an issue in the repository.
 
-📜 License
+## 📜 License
 
 MIT License © 2025
