@@ -37,15 +37,14 @@ const fetchProducts = async (
 
 const ProductPage = () => {
   const [page, setPage] = useState(1);
-  const [searchTerm, setSearchTerm] = useState("");
 
   const {
     data: products = [],
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["products", page, searchTerm],
-    queryFn: () => fetchProducts(page, searchTerm),
+    queryKey: ["products", page],
+    queryFn: () => fetchProducts(page),
     placeholderData: (prev) => prev,
   });
 

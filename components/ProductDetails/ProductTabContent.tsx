@@ -102,30 +102,31 @@ const TabContent = ({ activeTab, product }: TabContentProps) => {
   if (activeTab === "reviews") {
     return (
       <div className={classes.main}>
-        {product.reviews.map((review, id) => (
-          <ul key={id}>
-            <li>
-              <span>Rating:</span> {review.rating}
-            </li>
-            <li>
-              <span>Reviewer: </span>
-              {review.reviewerName}
-            </li>
-            <li>
-              <span>Comment: </span>
-              {review.comment}
-            </li>
-            <li>
-              <span>Date: </span>
-              {new Date(review.date).toLocaleDateString()}
-            </li>
-          </ul>
-        ))}
+        {product.reviews && product.reviews.length > 0 ? (
+          product.reviews.map((review, id) => (
+            <ul key={id}>
+              <li>
+                <span>Rating:</span> {review.rating}
+              </li>
+              <li>
+                <span>Reviewer:</span> {review.reviewerName}
+              </li>
+              <li>
+                <span>Comment:</span> {review.comment}
+              </li>
+              <li>
+                <span>Date:</span> {review.date}
+              </li>
+            </ul>
+          ))
+        ) : (
+          <p>No reviews available.</p>
+        )}
       </div>
     );
   }
 
   return null;
-}
+};
 
 export default TabContent;

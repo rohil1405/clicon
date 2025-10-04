@@ -51,6 +51,6 @@ const NotFoundPage = (): JSX.Element => {
       </div>
     </>
   );
-}
+};
 
 export default NotFoundPage;

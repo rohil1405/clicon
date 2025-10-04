@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import ProductListing from "@/components/Product/ProductListing";
 import Section from "@/components/Section/Section";
-import Button from "@/components/Button/Button";
 import SeoHead from "@/components/SeoHead/SeoHead";
 
 const FavoritesPage = () => {
@@ -42,15 +41,7 @@ const FavoritesPage = () => {
             Looks like you haven’t added any favorites yet.
             <span>Tap the ❤️ button on products to save them here.</span>
           </div>
-          <div style={{ marginTop: "20px" }}>
-            <Button
-              name="Go Back"
-              left={true}
-              right={false}
-              cart={false}
-              href="/"
-            />
-          </div>
+          <div style={{ marginTop: "20px" }}></div>
         </div>
       )}
     </>
