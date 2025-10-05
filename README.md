@@ -143,4 +143,4 @@ For feature requests or bugs, open an issue in the repository.
 
 ## 📜 License
 
-MIT License © 2025
+This project is licensed under the [MIT License](./LICENSE).
