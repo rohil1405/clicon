@@ -6,4 +6,5 @@ export interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   left?: boolean;
   right?: boolean;
   cart?: boolean;
+   isActive?: boolean;
 }
