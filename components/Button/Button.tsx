@@ -8,48 +8,50 @@ const Button: React.FC<ButtonProps> = ({
   right,
   cart,
   href,
+  isActive,
   ...rest
 }) => {
   return (
-    <div className="cta">
-      <Link
-        href={href}
-        className="btn"
-        aria-label={`${left ? "Arrow left, " : ""}${name}${
-          right ? ", Arrow right" : ""
-        }${cart ? ", Add to cart" : ""}`}
-        {...rest}
-      >
-        {left && (
-          <Image
-            width={20}
-            height={20}
-            alt="arrow-left"
-            src="/images/ArrowLeft.svg"
-          />
-        )}
+   <div className="cta">
+  <Link
+    href={href}
+    className="btn"
+    tabIndex={isActive ? 0 : -1} 
+    aria-label={`${left ? "Arrow left, " : ""}${name}${
+      right ? ", Arrow right" : ""
+    }${cart ? ", Add to cart" : ""}`} 
+    {...rest}
+  >
+    {left && (
+      <Image
+        width={20}
+        height={20}
+        alt="Arrow left"
+        src="/images/ArrowLeft.svg"
+      />
+    )}
 
-        {name}
+    {name}
 
-        {right && (
-          <Image
-            width={20}
-            height={20}
-            alt="arrow-right"
-            src="/images/ArrowRight.svg"
-          />
-        )}
+    {right && (
+      <Image
+        width={20}
+        height={20}
+        alt="Arrow right"
+        src="/images/ArrowRight.svg"
+      />
+    )}
 
-        {cart && (
-          <Image
-            src="/images/ShoppingCartSimple.svg"
-            width={24}
-            height={24}
-            alt="add-to-cart"
-          />
-        )}
-      </Link>
-    </div>
+    {cart && (
+      <Image
+        src="/images/ShoppingCartSimple.svg"
+        width={24}
+        height={24}
+        alt="Add to cart"
+      />
+    )}
+  </Link>
+</div>
   );
 };
 
