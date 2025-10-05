@@ -12,7 +12,14 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <div className="cta">
-      <Link href={href} className="btn" {...rest}>
+      <Link
+        href={href}
+        className="btn"
+        aria-label={`${left ? "Arrow left, " : ""}${name}${
+          right ? ", Arrow right" : ""
+        }${cart ? ", Add to cart" : ""}`}
+        {...rest}
+      >
         {left && (
           <Image
             width={20}
