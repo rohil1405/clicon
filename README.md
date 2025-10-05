@@ -11,7 +11,7 @@ Clicon is a modern eCommerce web application built with **Next.js** and **TypeSc
 
 ### Live Demo
 
-Check out the live site here: [https://clicon-rohil.vercel.app](https://clicon-rohil.vercel.app)
+Check out the live site here: [Live Demo](https://clicon-rohil.vercel.app)
 
 ## 🚀 Features
 
